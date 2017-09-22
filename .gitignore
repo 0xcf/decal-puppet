@@ -1,0 +1,6 @@
+# r10k files
+/.r10k/
+/vendor/
+
+# vim files
+*.swp

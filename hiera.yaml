@@ -1,0 +1,14 @@
+# TODO: currently editing this file requires a *manual* restart of the
+# puppet master (`sudo service apache2 restart`)
+version: 5
+
+defaults:
+  datadir: hieradata
+  data_hash: yaml_data
+
+hierarchy:
+  - name: "Nodes"
+    path: "nodes/%{::hostname}.yaml"
+
+  - name: "Common defaults"
+    path: "common.yaml"
