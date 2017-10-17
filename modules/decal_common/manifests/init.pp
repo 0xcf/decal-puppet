@@ -3,7 +3,14 @@ class decal_common {
   include decal_common::timezone
   include decal_common::vim
 
-  package { ['augeas-tools', 'htop', 'iotop', 'tree', 'virtualenv']:; }
+  package {
+    ['augeas-tools',
+     'fail2ban',
+     'htop',
+     'iotop',
+     'tree',
+     'virtualenv']:;
+  }
 
   file {
     '/etc/hostname':
