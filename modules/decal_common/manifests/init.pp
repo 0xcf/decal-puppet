@@ -3,7 +3,7 @@ class decal_common {
   include decal_common::timezone
   include decal_common::vim
 
-  package { ['tree', 'augeas-tools']:; }
+  package { ['augeas-tools', 'htop', 'iotop', 'tree', 'virtualenv']:; }
 
   file {
     '/etc/hostname':
