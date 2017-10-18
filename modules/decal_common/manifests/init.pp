@@ -1,8 +1,16 @@
 class decal_common {
+  include decal_common::broken_apache
   include decal_common::timezone
   include decal_common::vim
 
-  package { ['tree', 'augeas-tools']:; }
+  package {
+    ['augeas-tools',
+     'fail2ban',
+     'htop',
+     'iotop',
+     'tree',
+     'virtualenv']:;
+  }
 
   file {
     '/etc/hostname':
