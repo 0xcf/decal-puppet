@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IT WORKS!!!!</title>
+    <style type="text/css">
+      body {
+        color: #00ff00;
+        overflow-x: hidden;
+      }
+
+      .giant {
+        font-size: 160pt;
+        font-weight: 900;
+      }
+
+      .blink {
+        animation: blink 2s steps(2, start) infinite;
+      }
+
+      @keyframes blink {
+        to { visibility: hidden; }
+      }
+
+      .marquee {
+        display: inline-block;
+        position: relative;
+        animation: marquee 10s linear infinite;
+      }
+
+      @keyframes marquee {
+        from { left: 100%; }
+        to { left: -70%; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="marquee"><span class="giant blink">IT WORKS</span></div>
+  </body>
+</html>

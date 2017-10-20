@@ -4,6 +4,10 @@
 class decal_common::broken_apache {
   package { 'apache2':; } ->
   file {
+    '/var/www/html/index.html':
+      source => 'puppet:///modules/decal_common/lab6/itworks.html',
+  } ->
+  file {
     '/opt/lab6':
       source  => 'puppet:///modules/decal_common/lab6',
       recurse => true;
