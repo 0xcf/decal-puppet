@@ -3,6 +3,8 @@ class decal_nfs {
   service { 'nfs-server':; }
 
   # Decal usernames
+  # TODO: This is a pretty bad place to put this list, it should probably be in
+  # hiera or something?
   $decal_usernames = [
     'aaxu',
     'ahmedali',
