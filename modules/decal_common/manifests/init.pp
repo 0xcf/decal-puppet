@@ -1,5 +1,6 @@
 class decal_common {
   include decal_common::broken_apache
+  include decal_common::nfs
   include decal_common::timezone
   include decal_common::vim
 
