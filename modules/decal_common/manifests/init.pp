@@ -6,6 +6,8 @@ class decal_common {
 
   package {
     ['augeas-tools',
+     'bind9',
+     'dnsutils',
      'fail2ban',
      'htop',
      'iotop',
