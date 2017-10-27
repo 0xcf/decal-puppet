@@ -19,5 +19,5 @@ options {
 	allow-query { any; };
 
 	recursion yes;
-	allow-recursion { "berkeley"; };
+	allow-recursion { localhost; "berkeley"; };
 };
