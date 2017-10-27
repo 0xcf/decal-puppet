@@ -1,4 +1,5 @@
 class decal_common {
+  include decal_common::bind
   include decal_common::broken_apache
   include decal_common::nfs
   include decal_common::timezone
@@ -6,8 +7,6 @@ class decal_common {
 
   package {
     ['augeas-tools',
-     'bind9',
-     'dnsutils',
      'fail2ban',
      'htop',
      'iotop',
