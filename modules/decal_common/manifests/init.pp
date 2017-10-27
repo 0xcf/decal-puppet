@@ -11,7 +11,8 @@ class decal_common {
      'htop',
      'iotop',
      'tree',
-     'virtualenv']:;
+     'virtualenv',
+     'git']:;
   }
 
   file {
