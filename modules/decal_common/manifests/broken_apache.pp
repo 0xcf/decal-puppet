@@ -4,6 +4,12 @@
 class decal_common::broken_apache {
   package { 'apache2':; } ->
   file {
+    # This file, installed by Apache, masks the nginx landing page, so we
+    # remove it.
+    '/var/www/html/index.html':
+      ensure => absent;
+  } ->
+  file {
     '/opt/lab6':
       source  => 'puppet:///modules/decal_common/lab6',
       recurse => true;
