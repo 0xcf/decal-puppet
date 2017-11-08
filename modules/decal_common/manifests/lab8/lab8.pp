@@ -82,18 +82,22 @@ class decal_common::lab8::lab8 {
       owner => lab8user, # make readable to us by any means necessary
       group => lab8user, # make unreadable to lab8user
       mode  => '0700',
-      require => User['lab8user'];
+      require => User['lab8user'],
+      ensure => present;
 
     '/opt/lab8/file6.txt': # explain the following permissions
-      mode => '0147';  # u+x, g+r, o+rwx
+      mode => '0147',  # u+x, g+r, o+rwx
+      ensure => present;
 
     '/opt/lab8/file7.txt':
-      mode => '0562';  # u+rx, g+rw, o+w 
+      mode => '0562',  # u+rx, g+rw, o+w
+      ensure => present;
 
     [      
      '/opt/lab8/file8.txt', # provide a strategy to make these files readable to lab8user and yourself and no one else
      '/opt/lab8/file9.txt', # e.g. add lab8 user to your group and do chown :username + chmod 040 
     ]:
-      mode => '0000';
+      mode => '0000',
+      ensure => present;
   	}
 }
