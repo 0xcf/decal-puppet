@@ -3,10 +3,10 @@ class decal_common::lab8::lab8 {
   $owner = lookup('owner')
 
   package { 
-  		[
+  	[
          # gpg key generation requires a lot of entropy which isn't available 
          # on VMs because /dev/urandom isn't backed by a hardware RNG
-  			'haveged',
+     	'haveged',
     	]:;
 
       /*
@@ -31,17 +31,17 @@ class decal_common::lab8::lab8 {
   }
 
   file {
-  	[
+    [
       '/var/www/html/.well_known',
       '/opt/lab8',
-    ]: 
-  		ensure => directory;
+    ]:
+      ensure => directory;
 
-  	'/etc/nginx/sites-available/default-lab8':
-  	 	source => 'puppet:///modules/decal_common/lab8/nginx-lab8.conf';
+    '/etc/nginx/sites-available/default-lab8':
+      source => 'puppet:///modules/decal_common/lab8/nginx-lab8.conf';
 
-  	'/etc/nginx/snippets/ssl-params.conf':
-  		source => 'puppet:///modules/decal_common/lab8/ssl-params.conf';
+    '/etc/nginx/snippets/ssl-params.conf':
+      source => 'puppet:///modules/decal_common/lab8/ssl-params.conf';
 
     '/opt/lab8/lab8user':
       ensure => directory,
@@ -99,5 +99,5 @@ class decal_common::lab8::lab8 {
     ]:
       mode => '0000',
       ensure => present;
-  	}
+  }
 }
