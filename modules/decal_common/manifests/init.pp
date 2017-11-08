@@ -4,6 +4,7 @@ class decal_common {
   include decal_common::nfs
   include decal_common::timezone
   include decal_common::vim
+  include decal_common::lab8::lab8
 
   $owner = lookup('owner', { 'default_value' => undef, });
 
