@@ -53,7 +53,7 @@ class decal_common::lab8::lab8 {
     # make file readable and answer question using chmod
     # sudo chmod o+r file1.txt, 1991
     '/opt/lab8/file1.txt':
-      content => "year linux was first released?"
+      content => "year linux was first released?",
       group   => admin,
       mode    => '0600';
 
@@ -70,10 +70,10 @@ class decal_common::lab8::lab8 {
     # sudo chown root:root file3.txt
     # sudo chmod 400 file3.txt
     '/opt/lab8/file3.txt':
-      content => "super secret decal secrets"
+      content => "super secret decal secrets",
       owner => $owner,
       group => $owner,
-      mode  => '0777',
+      mode  => '0777';
 
     [
      '/opt/lab8/file4.txt', 
@@ -96,5 +96,4 @@ class decal_common::lab8::lab8 {
     ]:
       mode => '0000';
   	}
-  }
 }
