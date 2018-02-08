@@ -1,4 +1,0 @@
-/opt/lab7/public *(ro,no_subtree_check)
-<%- @decal_usernames.each do |user| -%>
-/opt/lab7/private/<%= user %> <%= user %>.decal.xcf.sh(rw,no_root_squash,no_subtree_check)
-<%- end -%>
