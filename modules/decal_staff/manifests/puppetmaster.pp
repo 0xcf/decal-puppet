@@ -1,4 +1,4 @@
-class decal_puppet {
+class decal_staff::puppetmaster {
   package { 'puppet-master-passenger':; }
 
   service { 'apache2':
