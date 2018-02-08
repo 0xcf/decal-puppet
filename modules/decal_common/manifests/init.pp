@@ -1,10 +1,6 @@
 class decal_common {
-  include decal_common::bind
-  include decal_common::broken_apache
-  include decal_common::nfs
   include decal_common::timezone
   include decal_common::vim
-  include decal_common::lab8::lab8
 
   $owner = lookup('owner', { 'default_value' => undef, });
 
@@ -15,7 +11,10 @@ class decal_common {
      'iotop',
      'tree',
      'virtualenv',
-     'git']:;
+     'git',
+     'vim',
+     'emacs',
+     'tmux']:;
   }
 
   file {
