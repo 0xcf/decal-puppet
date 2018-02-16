@@ -12,7 +12,6 @@ class decal_common {
      'tree',
      'virtualenv',
      'git',
-     'vim',
      'emacs',
      'tmux']:;
   }
