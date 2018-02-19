@@ -47,4 +47,15 @@ class decal_common {
   file { '/etc/resolvconf/resolv.conf.d/base':
     content => "domain decal.xcf.sh\n",
   }
+
+  service { 'ssh':; }
+
+  # Allow password-based authentication over SSH
+  augeas { 'sshd_config':
+    context => '/files/etc/ssh/sshd_config',
+    changes => [
+      'set PasswordAuthentication yes',
+    ],
+    notify  => Service['ssh'],
+  }
 }
