@@ -44,7 +44,7 @@ class decal_common {
   # Note: configuring this with puppet doesn't make much sense since puppet
   # can't run if this doesn't work already, but at least for anyone reading
   # this it will make it clearer what needs to be done to get puppet working.
-  file { '/etc/resolvconf/resolv.conf.d/base'
+  file { '/etc/resolvconf/resolv.conf.d/base':
     content => "domain decal.xcf.sh\n",
   }
 }
