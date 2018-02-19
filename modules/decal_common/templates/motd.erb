@@ -28,7 +28,7 @@ def info_line(prefix, info)
     "  - #{prefix}: #{bold(red(motd_line(info)))}" unless missing(info)
 end
 -%>
-<%= bold("Hi, I am #{red(@hostname + '.decal.xcf.sh')}, an AWS Student VM at #{red(@ec2_public_ipv4)}.") %>
-<%= bold("I belong to #{red(@owner)}.") %>
+<%= bold("Hi, I am #{red(@hostname + '.decal.xcf.sh')}, a DigitalOcean Student VM at #{red(@ipaddress_eth0)}.") %>
+<%= bold("I belong to #{red(@hostname)}.") %>
 <%= info_line('Puppet classes',     @classes_from_hiera) -%>
 <%= info_line('Puppet environment', @environment) if @environment.to_s != 'production' -%>
