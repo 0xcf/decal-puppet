@@ -7,6 +7,9 @@ defaults:
   data_hash: yaml_data
 
 hierarchy:
+  - name: "Private config (decal usernames mostly)"
+    path: "private.yaml"
+
   - name: "Nodes"
     path: "nodes/%{::hostname}.yaml"
 

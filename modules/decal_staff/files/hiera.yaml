@@ -3,6 +3,7 @@
     - yaml
 
 :hierarchy:
+    - "private"
     - "nodes/%{::hostname}"
     - "common"
 
