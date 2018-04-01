@@ -1,6 +1,9 @@
 # TODO: find out a way to do this without having to make this manifest get
 # loaded last
-hiera_include('classes')
+# A manual lookup and include is used to make it possible to override the
+# default classes by specifying more specific classes lists
+$classes = lookup('classes', Array, 'first')
+include $classes
 
 # By default, the cron type won't reset attributes if you don't specify them.
 # (e.g. if you only set "minute => '0'", it won't reset hour to '*')
