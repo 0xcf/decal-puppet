@@ -12,6 +12,12 @@ class decal_student::labs::lab7 {
   # Install dnsutils for the dig command
   package { 'dnsutils':; }
 
+  $advanced_decal_users = lookup('advanced_decal_users', Array)
+  if $::hostname in $advanced_decal_users {
+    # Install haproxy and tornado for lab a7 load balancing
+    package { ['python3-tornado', 'haproxy']:; }
+  }
+
   # This is the best way I could find to replace a default file but still let
   # decal users edit it as they want
   exec { 'check_named_options':
