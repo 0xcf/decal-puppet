@@ -9,6 +9,11 @@ class decal_student::labs::lab8 {
         ]:;
   }
 
+  package { 'gpg-agent':
+    # remove gpg-agent so they have to type the passwords every time
+    ensure => absent;
+  }
+
   user { 'a8user':
     comment => 'Account for students to test against',
     home    => '/opt/a8/',
@@ -19,7 +24,7 @@ class decal_student::labs::lab8 {
   file {
     [
       '/var/www/html/.well_known',
-      '/opt/a8/,
+      '/opt/a8/',
       '/etc/nginx/',
       '/etc/nginx/snippets/'
       '/etc/nginx/sites-enabled/'
@@ -87,13 +92,6 @@ class decal_student::labs::lab8 {
     ]:
       mode => '0000',
       ensure => present;
-  }
-}
-    
-    
-
-  package { 'gpg-agent':
-    ensure => absent;
   }
 }
 
