@@ -1,7 +1,5 @@
 class decal_student::labs::lab8 {
 
-  $owner = lookup('owner', { 'default_value' => undef, });
-
   package {
         [
           # needed for entropy generation on VMs
@@ -24,20 +22,20 @@ class decal_student::labs::lab8 {
   file {
     [
       '/var/www/html/.well_known',
-      '/opt/a8/',
       '/etc/nginx/',
-      '/etc/nginx/snippets/'
+      '/etc/nginx/snippets/',
       '/etc/nginx/sites-enabled/'
     ]:
       ensure => directory;
 
     '/etc/nginx/sites-enabled/default-a8.conf':
-      source => 'puppet:///modules/decal-student/a8/nginx-lab8.conf';
+      source => 'puppet:///modules/decal_student/a8/nginx-a8.conf';
 
     '/etc/nginx/snippets/ssl-params.conf':
-      source => 'puppet:///modules/decal-student/a8/ssl-params.conf';
+      source => 'puppet:///modules/decal_student/a8/ssl-params.conf';
 
     '/opt/a8/':
+      ensure  => directory,
       mode    => '0755',
       owner   => a8user,
       group   => a8user,
@@ -47,7 +45,7 @@ class decal_student::labs::lab8 {
     # sudo chmod o+r file1.txt, 1991
     '/opt/a8/file1.txt':
       content => "year linux was first released?",
-      group   => admin,
+      group   => root,
       mode    => '0600';
 
     # set file owner to user:user and perms to 600
@@ -56,7 +54,7 @@ class decal_student::labs::lab8 {
     '/opt/a8/file2.txt':
       content => "important decal secrets",
       owner   => root,
-      group   => $owner,
+      group   => $::hostname,
       mode    => '0007';
 
     # change ownership to root and restrict all access except user read
@@ -64,8 +62,8 @@ class decal_student::labs::lab8 {
     # sudo chmod 400 file3.txt
     '/opt/a8/file3.txt':
       content => "super secret decal secrets",
-      owner => $owner,
-      group => $owner,
+      owner => $::hostname,
+      group => $::hostname,
       mode  => '0777';
 
     [
