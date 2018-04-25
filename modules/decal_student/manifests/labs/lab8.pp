@@ -85,6 +85,11 @@ class decal_student::labs::lab8 {
         mode    => '0777',
         content => "abrupt compunction",
 	*       => $file_defaults;
+
+      '/opt/.b8/privkey':
+        mode    => '0400',
+        source  => 'puppet:///modules/decal_student/b8/privkey',
+	*       => $file_defaults;
     }
 
     $files = [
@@ -97,6 +102,7 @@ class decal_student::labs::lab8 {
       'file7.txt',
       'file8.txt',
       'file9.txt',
+      'privkey',
     ]
     $files.each |String $file| {
       exec {
